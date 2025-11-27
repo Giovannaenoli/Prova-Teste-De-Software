@@ -11,5 +11,14 @@ import java.util.*;
             List<String> erros = validator.validarPedidoFrete(100.00, 10.0, d, "86020000");
             assertTrue(erros.isEmpty());
         }
+
+        @Test
+        void VF02_pesoZero_retornaErro() {
+            FreteValidator validator = new FreteValidator();
+            Dimensoes d = new Dimensoes(0.50, 0.40, 0.30);
+            List<String> erros = validator.validarPedidoFrete(100.00, 0.0, d, "86020000");
+            assertEquals(1, erros.size());
+            assertTrue(erros.contains("Peso inválido"));
+        }
     }
 
