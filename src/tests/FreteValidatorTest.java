@@ -74,5 +74,12 @@ import java.util.*;
             assertTrue(erros.contains("CEP deve ter 8 dígitos"));
         }
 
+        @Test
+        void VF09_cepComLetra_retornaErro() {
+            FreteValidator validator = new FreteValidator();
+            Dimensoes d = new Dimensoes(0.50, 0.40, 0.30);
+            List<String> erros = validator.validarPedidoFrete(100.00, 10.0, d, "86A20000");
+            assertTrue(erros.contains("CEP deve conter apenas dígitos"));
+        }
     }
 
