@@ -1,4 +1,4 @@
-import java.util.List;
+import java.util.*;
 
 public class FreteValidator {
 
@@ -7,6 +7,6 @@ public class FreteValidator {
                                            Dimensoes dimensoes,
                                            String cep) {
         // TODO: implementar
-        return List.of(); // retornar lista vazia se não houver erros
+        return new ArrayList<>();
     }
 }
