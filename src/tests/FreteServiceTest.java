@@ -37,4 +37,11 @@ class FreteServiceTest {
         double frete = service.calcularFrete(200.00, 25.0, "01001000");
         assertEquals(60.00, frete, 0.001);
     }
+
+    @Test
+    void CF06_ate5kg_regiaoEspecial() {
+        FreteService service = new FreteService();
+        double frete = service.calcularFrete(100.00, 3.0, "86020000");
+        assertEquals(35.00, frete, 0.001);
+    }
 }
