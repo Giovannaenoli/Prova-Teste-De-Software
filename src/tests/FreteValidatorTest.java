@@ -87,6 +87,14 @@ import java.util.*;
             FreteValidator validator = new FreteValidator();
             Dimensoes d = new Dimensoes(1.20, 0.90, 0.80);
             List<String> erros = validator.validarPedidoFrete(-5.00, 40.0, d, "8X0200"); // cep curto e com letra
+
+            assertTrue(erros.size() >= 4);
+            assertTrue(erros.contains("Valor da compra inválido"));
+            assertTrue(erros.contains("Peso acima do limite"));
+            assertTrue(erros.contains("Comprimento acima do limite"));
+            assertTrue(erros.contains("Largura acima do limite"));
+            assertTrue(erros.contains("Altura acima do limite"));
+            assertTrue(erros.contains("CEP deve ter 8 dígitos") || erros.contains("CEP deve conter apenas dígitos"));
         }
     }
 
