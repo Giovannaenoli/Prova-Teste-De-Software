@@ -81,5 +81,12 @@ import java.util.*;
             List<String> erros = validator.validarPedidoFrete(100.00, 10.0, d, "86A20000");
             assertTrue(erros.contains("CEP deve conter apenas dígitos"));
         }
+
+        @Test
+        void VF10_variosErros_mesmoTempo() {
+            FreteValidator validator = new FreteValidator();
+            Dimensoes d = new Dimensoes(1.20, 0.90, 0.80);
+            List<String> erros = validator.validarPedidoFrete(-5.00, 40.0, d, "8X0200"); // cep curto e com letra
+        }
     }
 
