@@ -20,5 +20,14 @@ import java.util.*;
             assertEquals(1, erros.size());
             assertTrue(erros.contains("Peso inválido"));
         }
+
+        @Test
+        void VF03_pesoAcimaLimite_retornaErro() {
+            FreteValidator validator = new FreteValidator();
+            Dimensoes d = new Dimensoes(0.50, 0.40, 0.30);
+            List<String> erros = validator.validarPedidoFrete(100.00, 35.0, d, "86020000");
+            assertEquals(1, erros.size());
+            assertTrue(erros.contains("Peso acima do limite"));
+        }
     }
 
