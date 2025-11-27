@@ -47,5 +47,14 @@ import java.util.*;
             assertEquals(1, erros.size());
             assertTrue(erros.contains("Largura acima do limite"));
         }
+
+        @Test
+        void VF06_alturaAcima_retornaErro() {
+            FreteValidator validator = new FreteValidator();
+            Dimensoes d = new Dimensoes(0.50, 0.40, 0.70);
+            List<String> erros = validator.validarPedidoFrete(100.00, 10.0, d, "86020000");
+            assertEquals(1, erros.size());
+            assertTrue(erros.contains("Altura acima do limite"));
+        }
     }
 
