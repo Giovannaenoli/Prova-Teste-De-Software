@@ -65,5 +65,14 @@ import java.util.*;
             assertEquals(1, erros.size());
             assertTrue(erros.contains("Valor da compra inválido"));
         }
+
+        @Test
+        void VF08_cepTamanhoInvalido_retornaErro() {
+            FreteValidator validator = new FreteValidator();
+            Dimensoes d = new Dimensoes(0.50, 0.40, 0.30);
+            List<String> erros = validator.validarPedidoFrete(100.00, 10.0, d, "8602000"); // 7 dígitos
+            assertTrue(erros.contains("CEP deve ter 8 dígitos"));
+        }
+
     }
 
